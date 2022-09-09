@@ -18,18 +18,23 @@ export default {
 
 <style module>
 .header {
-  width: 100vw;
-  height: 80px;
-  background: #7100ab;
+  width: 90vw;
+  height: 50px;
+  border-color: rgb(218, 220, 224);
+  border-width: 0 2px 2px 2px ;
+  border-style: solid;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
+  border-radius: 0 0 20px 20px;
+  padding: 12px;
 }
 
 .scoreSpan {
   font-family: Arial;
   font-weight: bold;
   font-size: 60px;
-  color: #fdfeff;
+  color: #c58787;
 }
 </style>

@@ -1,0 +1,42 @@
+<script>
+export default {
+  props: {
+    size: { type: Number, required: false }
+  },
+  data() {
+    return {
+      styleObject: {
+        height: this.size ? `${this.size}px` : `90%`,
+        width: this.size ? `${this.size}px` : `90%`
+      }
+    };
+  }
+};
+</script>
+
+<template>
+  <div :style="styleObject">
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+         x="0px" y="0px"
+         viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<rect x="0.016" style="fill:#E04F5F;" width="512" height="512" />
+      <g>
+
+		<rect x="98.142" y="239.993" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 256.0393 618.0406)"
+          style="fill:#FFFFFF;" width="315.757" height="32" />
+
+        <rect x="240.009" y="98.114" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 256.02 618.0327)"
+              style="fill:#FFFFFF;" width="32" height="315.757" />
+</g>
+</svg>
+
+  </div>
+
+</template>
+
+<style module>
+svg {
+  height: 100%;
+  width: 100%;
+}
+</style>
