@@ -1,14 +1,6 @@
 <template>
   <div :class="$style.gameField">
-    <ClickableField type="CROSS" />
-    <ClickableField type="CROSS" />
-    <ClickableField type="CROSS" />
-    <ClickableField type="CROSS" />
-    <ClickableField type="CROSS" />
-    <ClickableField type="CROSS" />
-    <ClickableField type="CROSS" />
-    <ClickableField type="CROSS" />
-    <ClickableField type="CROSS" />
+    <ClickableField v-for="item in nextType" :type="item"/>
   </div>
 </template>
 
@@ -28,6 +20,21 @@
 <script>
 import ClickableField from "./ClickableField.vue"
 export default {
+  data(){
+    return {
+      nextType: new Array(9),
+      i: 0
+    }
+  },
+  mounted() {
+    this.nextType[0]= "CROSS"
+  },
+  methods: {
+    onCLickHandeler: function(){
+      this.i++;
+      this.nextType[this.i-1] === "CROSS" ? this.nextType[this.i] = "CIRCLE" : this.nextType[this.i] = "CROSS"
+    }
+  },
   components: { ClickableField },
 };
 </script>
