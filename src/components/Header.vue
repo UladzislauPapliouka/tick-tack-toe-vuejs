@@ -4,15 +4,17 @@ export default {
     score: {
       user1: Number,
       user2: Number,
-      required: true
-    }
+      required: true,
+    },
   },
-}
+};
 </script>
 
 <template>
   <div :class="$style.header">
-    <span :class="$style.scoreSpan">{{ `${score.user1} : ${score.user2}` }}</span>
+    <span :class="$style.scoreSpan">{{
+      `${score.user1} : ${score.user2}`
+    }}</span>
   </div>
 </template>
 
@@ -21,7 +23,7 @@ export default {
   width: 90vw;
   height: 50px;
   border-color: rgb(218, 220, 224);
-  border-width: 0 2px 2px 2px ;
+  border-width: 0 2px 2px 2px;
   border-style: solid;
   display: flex;
   justify-content: center;
