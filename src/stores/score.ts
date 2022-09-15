@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { GameMarkers } from "@/stores/gameState";
 
 export const useGameScore = defineStore("score", {
   state: () => {
@@ -11,5 +12,17 @@ export const useGameScore = defineStore("score", {
     winSecondPlayer() {
       this.user2++;
     },
-  },
+    gameWin(winnerMarker: GameMarkers.CROSS | GameMarkers.CIRCLE) {
+      switch (winnerMarker) {
+        case GameMarkers.CROSS:
+          this.winFirstPlayer();
+          break;
+        case GameMarkers.CIRCLE:
+          this.winSecondPlayer();
+          break;
+        default:
+
+      }
+    }
+  }
 });

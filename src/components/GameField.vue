@@ -1,6 +1,8 @@
 <template>
   <div :class="$style.gameField">
-    <ClickableField v-for="item in nextType" :type="item"/>
+    <ClickableField v-for="item in gameMap" :type="item.marker" @click="()=>{
+      !item.marker.trim() && onCLickHandeler(item.id)
+    }"/>
   </div>
 </template>
 
@@ -19,20 +21,16 @@
 </style>
 <script>
 import ClickableField from "./ClickableField.vue"
+import { useGameState } from "@/stores/gameState";
 export default {
   data(){
     return {
-      nextType: new Array(9),
-      i: 0
+      gameMap: useGameState().gameMap
     }
   },
-  mounted() {
-    this.nextType[0]= "CROSS"
-  },
   methods: {
-    onCLickHandeler: function(){
-      this.i++;
-      this.nextType[this.i-1] === "CROSS" ? this.nextType[this.i] = "CIRCLE" : this.nextType[this.i] = "CROSS"
+    onCLickHandeler: function(fieldId){
+      useGameState().setClickedField(fieldId)
     }
   },
   components: { ClickableField },
