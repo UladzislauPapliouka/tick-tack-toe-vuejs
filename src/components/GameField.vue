@@ -3,6 +3,7 @@
     <ClickableField v-for="item in gameMap" :type="item.marker" @click="()=>{
       !item.marker.trim() && onCLickHandeler(item.id)
     }"/>
+    <img :class="$style.lattice" src="src/assets/icons/Lattice.svg" alt="">
   </div>
 </template>
 
@@ -14,9 +15,15 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  grid-gap: 10px;
   align-items: center;
   justify-items: center;
+  position: relative;
+}
+.lattice{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
 }
 </style>
 <script>
