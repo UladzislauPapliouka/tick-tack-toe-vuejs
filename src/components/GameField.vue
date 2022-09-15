@@ -1,23 +1,35 @@
 <template>
-  <div :class="$style.gameField">
-    <ClickableField v-for="item in gameMap" :type="item.marker" @click="()=>{
+ <div :class="$style.gameFieldContainer">
+   <div :class="$style.gameField">
+     <ClickableField v-for="item in gameMap" :type="item.marker" @click="()=>{
       !item.marker.trim() && onCLickHandeler(item.id)
     }"/>
-    <img :class="$style.lattice" src="src/assets/icons/Lattice.svg" alt="">
-  </div>
+     <img :class="$style.lattice" src="src/assets/icons/Lattice.svg" alt="">
+   </div>
+ </div>
 </template>
 
 <style module>
 .gameField {
-  height: 600px;
-  width: 600px;
-  margin: auto;
+  height: 700px;
+  width: 700px;
+  margin: auto auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   align-items: center;
   justify-items: center;
   position: relative;
+}
+.gameFieldContainer{
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .lattice{
   width: 100%;
