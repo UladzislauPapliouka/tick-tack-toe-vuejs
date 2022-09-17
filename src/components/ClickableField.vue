@@ -23,8 +23,8 @@ export default {
 
 <template>
   <div :class="$style.container" @click="onClickHandler">
-    <Cross v-if="type ==='CROSS' && clicked " />
-    <Circle v-if="type === 'CIRCLE' && clicked " />
+    <Cross v-if="type ==='CROSS' && clicked " :size="100" />
+    <Circle v-if="type === 'CIRCLE' && clicked " :size="100" />
   </div>
 </template>
 
@@ -35,5 +35,8 @@ export default {
   display: flex;
   justify-content: center ;
   align-items: center;
+  background: #ceedc6;
+  border-radius: 40px;
+  box-shadow: -10px 10px 10px #777070;
 }
 </style>
