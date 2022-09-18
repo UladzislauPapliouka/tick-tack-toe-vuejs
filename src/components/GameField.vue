@@ -24,7 +24,7 @@
 }
 
 .gameFieldContainer {
-  background: #c2c2cb;
+  background: #FDFDFD;
   top: 50px;
   left: 0;
   position: absolute;

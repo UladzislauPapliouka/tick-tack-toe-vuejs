@@ -35,8 +35,10 @@ export default {
   display: flex;
   justify-content: center ;
   align-items: center;
-  background: #ceedc6;
+  background: #FFFFFF;
   border-radius: 40px;
-  box-shadow: -10px 10px 10px #777070;
+  -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
 }
 </style>
