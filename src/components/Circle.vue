@@ -21,7 +21,8 @@ export default {
 </template>
 
 <style module>
-svg {
+img {
+  transform: rotate(90deg);
   height: 100%;
   width: 100%;
 }
