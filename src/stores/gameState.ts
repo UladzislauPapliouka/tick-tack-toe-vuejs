@@ -29,13 +29,14 @@ export const useGameState = defineStore("gameState", {
     setClickedField(fieldId: number) {
       this.gameMap[fieldId].marker = this.nextMarker;
       this.swapMarker();
+      this.checkDraw();
       this.checkWin();
     },
-    resetMap(winnerMarker: GameMarkers.CROSS | GameMarkers.CIRCLE) {
+    resetMap(winnerMarker?: GameMarkers.CROSS | GameMarkers.CIRCLE) {
       for (let i = 0; i <= defaultMap.length - 1; i++) {
         this.gameMap[i].marker = "";
       }
-      useGameScore().gameWin(winnerMarker);
+      winnerMarker && useGameScore().gameWin(winnerMarker);
     },
     checkWin() {
       if (this.gameMap[0].marker !== "" && this.gameMap[0].marker === this.gameMap[1].marker && this.gameMap[0].marker === this.gameMap[2].marker) {
@@ -55,6 +56,9 @@ export const useGameState = defineStore("gameState", {
       } else if (this.gameMap[2].marker !== "" && this.gameMap[2].marker === this.gameMap[4].marker && this.gameMap[2].marker === this.gameMap[6].marker) {
         this.resetMap(this.gameMap[0].marker === GameMarkers.CROSS ? GameMarkers.CROSS : GameMarkers.CIRCLE);
       }
+    },
+    checkDraw() {
+      !this.gameMap.filter(element => element.marker === "").length && this.resetMap();
     }
   }
 });
