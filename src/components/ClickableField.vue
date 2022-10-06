@@ -1,30 +1,29 @@
-<script>
+<script lang="ts">
 import Circle from "./Circle.vue";
 import Cross from "./Cross.vue";
 
 export default {
   data() {
     return {
-      clicked: false
+      clicked: false,
     };
   },
   components: { Circle, Cross },
   props: {
-    type: { type: String, required: false, default: "CROSS" }
+    type: { type: String, required: false, default: "CROSS" },
   },
   methods: {
-    onClickHandler: function() {
-      !this.clicked ? this.clicked = !this.clicked : () => {
-      };
-    }
-  }
+    onClickHandler: function () {
+      !this.clicked ? (this.clicked = !this.clicked) : () => {};
+    },
+  },
 };
 </script>
 
 <template>
   <div :class="$style.container" @click="onClickHandler">
-    <Cross v-if="type ==='CROSS' && clicked " :size="100" />
-    <Circle v-if="type === 'CIRCLE' && clicked " :size="100" />
+    <Cross v-if="type === 'CROSS' && clicked" :size="100" />
+    <Circle v-if="type === 'CIRCLE' && clicked" :size="100" />
   </div>
 </template>
 
@@ -33,9 +32,9 @@ export default {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center ;
+  justify-content: center;
   align-items: center;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 40px;
   -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);

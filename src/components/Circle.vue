@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 export default {
   props: {
     size: { type: Number, required: false },
@@ -16,7 +16,7 @@ export default {
 
 <template>
   <div :style="styleObject">
-    <img src="src/assets/icons/circle.svg" alt="">
+    <img src="src/assets/icons/circle.svg" alt="" />
   </div>
 </template>
 

@@ -1,10 +1,16 @@
 <template>
   <div :class="$style.gameFieldContainer">
     <div :class="$style.gameField">
-      <ClickableField v-for="item in gameMap" :type="item.marker" @click="()=>{
-      !item.marker.trim() && onCLickHandeler(item.id)
-    }" />
-      <img :class="$style.lattice" src="src/assets/icons/Lattice.svg" alt="">
+      <ClickableField
+        v-for="item in gameMap"
+        :type="item.marker"
+        @click="
+          () => {
+            !item.marker.trim() && onCLickHandeler(item.id);
+          }
+        "
+      />
+      <img :class="$style.lattice" src="src/assets/icons/Lattice.svg" alt="" />
     </div>
   </div>
 </template>
@@ -24,7 +30,7 @@
 }
 
 .gameFieldContainer {
-  background: #FDFDFD;
+  background: #fdfdfd;
   top: 50px;
   left: 0;
   position: absolute;
@@ -42,21 +48,21 @@
   z-index: -1;
 }
 </style>
-<script>
+<script lang="ts">
 import ClickableField from "./ClickableField.vue";
 import { useGameState } from "@/stores/gameState";
 
 export default {
   data() {
     return {
-      gameMap: useGameState().gameMap
+      gameMap: useGameState().gameMap,
     };
   },
   methods: {
-    onCLickHandeler: function(fieldId) {
+    onCLickHandeler: function (fieldId) {
       useGameState().setClickedField(fieldId);
-    }
+    },
   },
-  components: { ClickableField }
+  components: { ClickableField },
 };
 </script>

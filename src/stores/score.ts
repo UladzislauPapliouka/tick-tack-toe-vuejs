@@ -21,8 +21,7 @@ export const useGameScore = defineStore("score", {
           this.winSecondPlayer();
           break;
         default:
-
       }
-    }
-  }
+    },
+  },
 });
