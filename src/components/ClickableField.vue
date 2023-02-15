@@ -1,23 +1,28 @@
 <script lang="ts">
+import { defineComponent } from "vue";
 import Circle from "./Circle.vue";
 import Cross from "./Cross.vue";
-
-export default {
-  data() {
-    return {
-      clicked: false,
-    };
-  },
-  components: { Circle, Cross },
-  props: {
-    type: { type: String, required: false, default: "CROSS" },
-  },
-  methods: {
-    onClickHandler: function () {
-      !this.clicked ? (this.clicked = !this.clicked) : () => {};
-    },
-  },
-};
+export default defineComponent(
+    {
+      data():{
+        clicked:boolean
+      } {
+        return {
+          clicked: false,
+        };
+      },
+      components: { Circle, Cross },
+      props: {
+        type: { type: String, required: false, default: "CROSS" },
+      },
+      methods: {
+        onClickHandler: function () {
+          !this.clicked ? (this.clicked = !this.clicked) : () => {};
+          console.log(this.$data.clicked)
+        },
+      },
+    }
+)
 </script>
 
 <template>

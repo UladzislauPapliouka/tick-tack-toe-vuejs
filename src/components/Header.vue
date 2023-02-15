@@ -1,13 +1,17 @@
 <script lang="ts">
-export default {
-  props: {
-    score: {
-      user1: Number,
-      user2: Number,
-      required: true,
-    },
-  },
-};
+import {defineComponent} from "vue";
+
+export default defineComponent(
+    {
+      props: {
+        score: {
+          user1: Number,
+          user2: Number,
+          required: true,
+        },
+      },
+    }
+)
 </script>
 
 <template>

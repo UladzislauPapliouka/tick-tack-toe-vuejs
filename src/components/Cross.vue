@@ -1,17 +1,21 @@
 <script lang="ts">
-export default {
-  props: {
-    size: { type: Number, required: false },
-  },
-  data() {
-    return {
-      styleObject: {
-        height: this.size ? `${this.size}px` : `90%`,
-        width: this.size ? `${this.size}px` : `90%`,
+import {defineComponent} from "vue";
+
+export default defineComponent(
+    {
+      props: {
+        size: { type: Number, required: false },
       },
-    };
-  },
-};
+      data() {
+        return {
+          styleObject: {
+            height: this.size ? `${this.size}px` : `90%`,
+            width: this.size ? `${this.size}px` : `90%`,
+          },
+        };
+      },
+    }
+)
 </script>
 
 <template>

@@ -6,7 +6,7 @@
         :type="item.marker"
         @click="
           () => {
-            !item.marker.trim() && onCLickHandeler(item.id);
+            !item.marker.trim() && onClickHandler(item.id);
           }
         "
       />
@@ -51,18 +51,21 @@
 <script lang="ts">
 import ClickableField from "./ClickableField.vue";
 import { useGameState } from "@/stores/gameState";
+import {defineComponent} from "vue";
 
-export default {
-  data() {
-    return {
-      gameMap: useGameState().gameMap,
-    };
-  },
-  methods: {
-    onCLickHandeler: function (fieldId) {
-      useGameState().setClickedField(fieldId);
-    },
-  },
-  components: { ClickableField },
-};
+export default defineComponent(
+    {
+      data() {
+        return {
+          gameMap: useGameState().gameMap,
+        };
+      },
+      methods: {
+        onClickHandler: function (fieldId:number) {
+          useGameState().setClickedField(fieldId);
+        },
+      },
+      components: { ClickableField },
+    }
+)
 </script>
